@@ -1,0 +1,4 @@
+
+1 - Afegir camps de homes i dones a la taula
+2 - Fer funcionar el filtre del camp de text, ha de filter sobre el camp cognom de la taula
+3 - Poder reordenar les dades de la taula de forma ascendent i descendent fent click als noms de les columnes
