@@ -14,7 +14,7 @@ function Filter({ onFilter }) {
     <div className="mb-3">
       <input type="text" className="form-control d-inline-block me-2" style={{ width: '200px' }}
         value={filter?.searchTerm || ""} onChange={handleSearchTermChange} />
-      <button className="btn btn-primary">Filter</button>
+      <button type="button" className="btn btn-primary" onClick={onFilterClick}>Filter</button>
     </div>
   );
 }

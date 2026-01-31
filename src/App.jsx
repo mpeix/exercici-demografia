@@ -13,6 +13,7 @@ import './App.css'
 
 function App() {
   const [data, setData] = useState([]);
+  const [filterData, setFilterData] = useState([]);
   const [municipi, setMunicipi] = useState('');
 
 
@@ -23,24 +24,28 @@ function App() {
         const { dades, municipi, total_registres } = data;
         const dadesDTO = dades.map(d => new DadesDTO(d));
         setData(dadesDTO);
+        setFilterData(dadesDTO);
         setMunicipi(municipi);
       })
       .catch(error => console.error('Error fetching data:', error))
   }, [])
 
-
   //filter (typeOf FilterDTO)
   const onFilterChanged = (filter) => {
     console.log('filter', filter);
+   const filterData = data.filter((d) => d.cognom.includes(filter.searchTerm));
+   setFilterData(filterData)
   }
+
+  
 
 
   return (
     <>
       <h1>Dades demogràfiques</h1>
       {municipi && <h2>Municipi analitzat: {municipi}</h2>}
-      <Filter onFilterChanged={onFilterChanged} />
-      {data && data.length > 0 && <Table list={data} />}
+      <Filter onFilter={onFilterChanged} />
+      {data && data.length > 0 && <Table list={filterData} />}
     </>
   )
 }

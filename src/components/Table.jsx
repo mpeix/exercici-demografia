@@ -8,13 +8,17 @@ function Table({ list }) {
         <tr>
           <th>Cognom</th>
           <th>Total</th>
+          <th>Dones</th>
+          <th>Homes</th>
         </tr>
       </thead>
       <tbody>
-        {list?.map(({cognom, total}, index) => (
+        {list?.map(({cognom, total, dones, homes}, index) => (
           <tr key={index}>
             <td>{cognom}</td>
             <td>{total}</td>
+            <td>{dones}</td>
+            <td>{homes}</td>
           </tr>
         ))}
       </tbody>
